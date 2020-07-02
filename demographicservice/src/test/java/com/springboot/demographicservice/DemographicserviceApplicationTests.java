@@ -1,10 +1,10 @@
-package com.springboot.microservices.bankapp.bankcustomersdemographic;
+package com.springboot.demographicservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BankcustomersdemographicApplicationTests {
+class DemographicserviceApplicationTests {
 
     @Test
     void contextLoads() {
