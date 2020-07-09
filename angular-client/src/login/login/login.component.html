@@ -1,0 +1,19 @@
+<div>
+  <form [formGroup]="loginDetails" (ngSubmit)="onSubmit(loginDetails.value)">
+    <div>
+      <label for="username" class="col-sm-2 control-label">Username</label>
+      <input type="text" formControlName="username" placeholder="username" id="username">
+      <span class="help-block" *ngIf="loginDetails.controls.username.dirty && loginDetails.controls.username.errors.pattern">Username cannot contain special characters</span>
+    </div>
+    <div>
+      <label for="username" class="col-sm-2 control-label">Password</label>
+      <input type="text" formControlName="password" placeholder="password" id="password">
+      <span class="help-block" [ngStyle]="{'color':'red'}"  *ngIf="loginDetails.controls.password.dirty && loginDetails.controls.password.hasError('noRequiredCharacters')">Your password must contain @-, characters</span>
+    </div>
+    <div>
+    <label for="rememberMe" class="col-sm-2 control-label">Remember Me</label>
+    <input type="checkbox" id="rememberMe">
+    </div>
+    <button class="btn btn-default" type="submit">Submit</button>
+  </form>
+</div>
