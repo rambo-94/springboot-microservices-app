@@ -6,7 +6,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginService} from './login.service';
 import {LoginRoutingModule} from './login-routing.module';
 
-import {HttpClientModule, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClientModule, HttpParams} from '@angular/common/http';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],

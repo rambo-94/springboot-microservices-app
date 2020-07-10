@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   loginDetails = this.builder.group({
 
-    username: ['', [ Validators.minLength(5), Validators.pattern('[a-zA-Z0-9^@^-^,^.]{3-7}')]],
+    username: ['', [ Validators.minLength(3), Validators.pattern('[a-zA-Z0-9^@^-^,^.]{3-7}')]],
     password: ['', [Validators.minLength(6), Validators.required, contains]]
 
 
@@ -44,10 +44,10 @@ export class LoginComponent implements OnInit {
 
   onSubmit(value: NgForm) {
 
-    console.log(value);
-    this.api.checkUserCred(value.value.username).subscribe(login => {
+    console.log(value['username']);
+    this.api.checkUserCred(value['username']).subscribe(login => {
 
-      this.errorMessage = login.password === value.value.password ?  true : false;
+      this.errorMessage = login.password === value['password'] ?  true : false;
       if ( this.errorMessage ) {
          this.route.navigate(['/home']);
        }
@@ -56,6 +56,10 @@ export class LoginComponent implements OnInit {
           this.error = 'error retrieving details ,Please try again';
       }
     );
+  }
+
+  navigate() {
+    this.route.navigate(['/register']);
   }
 }
 
