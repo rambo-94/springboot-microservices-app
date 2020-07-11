@@ -1,0 +1,30 @@
+<div>
+  <form [formGroup]="registerDetails" (ngSubmit)="saveDetails(registerDetails.value)">
+    <div>
+      <label for="firstName" class="col-sm-2 control-label">firstName</label>
+      <input type="text" placeholder="Enter your first Name" id="firstName" formControlName="firstName">
+    </div>
+    <div>
+      <label for="lastName" class="col-sm-2 control-label">lastName</label>
+      <input type="text" placeholder="Enter your last Name" id="lastName" formControlName="lastName">
+    </div>
+    <div>
+      <label for="username" class="col-sm-2 control-label">Username</label>
+      <input type="text" placeholder="Enter your username" id="username" formControlName="username">
+    </div>
+    <div>
+      <label for="password" class="col-sm-2 control-label">password</label>
+      <input type="password" placeholder="Enter your password" id="password" formControlName="password">
+    </div>
+    <div>
+      <label for="confirmPassword" class="col-sm-2 control-label">confirm Password</label>
+      <input type="password" placeholder="Confirm your password" id="confirmPassword" formControlName="confirmPassword">
+    </div>
+    <div>
+      <label for="email" class="col-sm-2 control-label">email</label>
+      <input type="email" placeholder="enter your Email-ID" id="email" formControlName="email">
+    </div>
+    <button class="btn btn-default" type="submit">Submit</button>
+
+  </form>
+</div>
