@@ -1,10 +1,16 @@
 package com.springboot.demographicservice.controllers;
 
 import com.springboot.demographicservice.model.Demographics;
+import com.springboot.demographicservice.model.User;
 import com.springboot.demographicservice.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.HashMap;
 
 
 @RestController
@@ -29,9 +35,14 @@ public class LoginController  {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method = RequestMethod.PUT,path = "/register}")
-    void saveRegistrationDetails(@RequestBody Demographics username){
+    void saveRegistrationDetails(@RequestBody HashMap<String,Object> json){
 
-        this.loginService.save(username);
+
+        User user= (User) json.get("login");
+        Demographics demographics = (Demographics) json.get("demographics");
+
+        this.loginService.save(user);
+        this.loginService.save(demographics);
 
 
     }

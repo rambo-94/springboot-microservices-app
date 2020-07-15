@@ -1,13 +1,18 @@
 package com.springboot.demographicservice.service;
 
-import com.springboot.demographicservice.model.Demographics;
-import org.springframework.data.repository.CrudRepository;
+import com.springboot.demographicservice.repository.LoginRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface LoginService extends CrudRepository<Demographics,Long> {
+public class LoginService  {
 
-   public Demographics findByUsername(String Username);
+    @Autowired
+    private final LoginRepository loginRepository;
 
+    public LoginService(LoginRepository loginRepository) {
+        this.loginRepository = loginRepository;
+    }
 
+    
 }
