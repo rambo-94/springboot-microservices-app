@@ -1,6 +1,6 @@
-package com.springboot.demographicservice.repository;
+package com.springboot.demoservice.repository;
 
-import com.springboot.demographicservice.model.Accounts;
+import com.springboot.demoservice.model.Accounts;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

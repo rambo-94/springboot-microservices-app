@@ -1,4 +1,4 @@
-package com.springboot.demographicservice;
+package com.springboot.demoservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

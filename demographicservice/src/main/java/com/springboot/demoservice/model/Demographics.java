@@ -1,4 +1,4 @@
-package com.springboot.demographicservice.model;
+package com.springboot.demoservice.model;
 
 
 import javax.persistence.*;

@@ -1,4 +1,4 @@
-package com.springboot.demographicservice;
+package com.springboot.demoservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
