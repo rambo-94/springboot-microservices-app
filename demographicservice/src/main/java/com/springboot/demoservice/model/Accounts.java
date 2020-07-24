@@ -19,6 +19,9 @@ public class Accounts {
     @Column(name = "accountType")
     public String accountType;
 
+    @Column(name = "balance")
+    public double balance;
+
     public Long getId() {
         return id;
     }
@@ -59,6 +62,5 @@ public class Accounts {
         this.balance = balance;
     }
 
-    @Column(name = "balance")
-    public double balance;
+
 }
