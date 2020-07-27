@@ -31,7 +31,7 @@ public class AccountService {
         User user = userRepository.findByUsername(username);
 
         List<Accounts> accounts=accountRepository.findAllByUser(user.getId());
-        
+
 
 
 
