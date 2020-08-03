@@ -38,10 +38,11 @@ public class AccountController {
 
         JsonNode jsonNode= objectMapper.readTree(reader);
         String username = jsonNode.get("username").asText();
+        String accountType = jsonNode.get("accountType").asText();
         Long depositAmount = jsonNode.get("amount").asLong();
 
 
-      accountService.addFunds(username,depositAmount);
+      accountService.addFunds(username,depositAmount,accountType);
 
     }
 
