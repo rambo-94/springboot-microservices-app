@@ -1,5 +1,6 @@
 package com.springboot.demoservice.service;
 
+import com.springboot.demoservice.exceptions.NotEnoughBalanceException;
 import com.springboot.demoservice.model.Accounts;
 import com.springboot.demoservice.model.User;
 import com.springboot.demoservice.repository.AccountRepository;
@@ -30,15 +31,14 @@ public class AccountService {
     public void  addFunds(String username,double amount,String accountType){
 
         User user = userRepository.findByUsername(username);
-        final double[] balance = new double[1];
+
 
         List<Accounts> accounts=accountRepository.findAllByUser(user.getId());
 
         accounts.forEach((acc) ->{
 
             if(acc.getAccountType()== accountType)
-                balance[0] = amount + acc.getBalance();
-            acc.setBalance(balance[0]);
+            acc.setBalance(amount + acc.getBalance());
             accountRepository.save(acc);
 
         });
@@ -47,10 +47,27 @@ public class AccountService {
 
     }
 
-    public void withdrawFunds(String Username,Long amount) {
+    public void withdrawFunds(String username,Long amount,String accountType) throws NotEnoughBalanceException {
 
 
 
+        User user = userRepository.findByUsername(username);
+        List<Accounts> accounts=accountRepository.findAllByUser(user.getId());
 
+
+        accounts.forEach((acc) ->{
+
+            if(acc.getAccountType() == accountType){
+               if(acc.getBalance()< amount) {
+                   throw new NotEnoughBalanceException("not enogh balance");
+               }
+
+                acc.setBalance(amount + acc.getBalance());
+            }
+
+
+            accountRepository.save(acc);
+
+        });
     }
 }
