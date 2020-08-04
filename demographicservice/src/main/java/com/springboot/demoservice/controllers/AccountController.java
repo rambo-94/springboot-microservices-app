@@ -28,7 +28,7 @@ public class AccountController {
     }
 
 
-    @RequestMapping(path = "",method = RequestMethod.GET)
+    @RequestMapping(path = "",method = RequestMethod.POST)
     public void depositFunds(HttpServletRequest request) throws IOException {
         ObjectMapper objectMapper =new ObjectMapper();
 
@@ -47,7 +47,7 @@ public class AccountController {
     }
 
 
-    @RequestMapping(path = "",method = RequestMethod.GET)
+    @RequestMapping(path = "",method = RequestMethod.POST)
     public void withdrawFunds(HttpServletRequest request) throws IOException {
         ObjectMapper objectMapper =new ObjectMapper();
 
