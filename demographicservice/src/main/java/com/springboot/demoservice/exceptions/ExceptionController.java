@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ExceptionController {
 
 
-    @ExceptionHandler(value
-            = { IllegalArgumentException.class, IllegalStateException.class })
+    @ExceptionHandler
     public ResponseEntity transactionFailed(){
 
         ObjectMapper objectMapper =new ObjectMapper();
 
-        objectMapper.createObjectNode().put("message","insufficient balance to withdraw");
+        objectMapper.createObjectNode().put("message","");
 
         return new ResponseEntity(objectMapper, HttpStatus.EXPECTATION_FAILED);
     }

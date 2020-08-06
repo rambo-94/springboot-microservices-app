@@ -1,6 +1,7 @@
 package com.springboot.demoservice.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.springboot.demoservice.model.Demographics;
 import com.springboot.demoservice.model.User;
 import com.springboot.demoservice.service.UserService;
 import org.codehaus.jettison.json.JSONException;
@@ -53,6 +54,7 @@ public class UserController {
 
         User user= (User) json.get("User");
 
+        userService.save(user);
         objectMapper.createObjectNode().put("message","Saved Successful");
 
 

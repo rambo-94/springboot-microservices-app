@@ -57,10 +57,11 @@ public class AccountController {
         JsonNode jsonNode= objectMapper.readTree(reader);
         String username = jsonNode.get("username").asText();
         Long withdrawAmount = jsonNode.get("amount").asLong();
+        String accountType = jsonNode.get("accountType").asText();
 
 
 
-        accountService.withdrawFunds(username,withdrawAmount);
+        accountService.withdrawFunds(username,withdrawAmount,accountType);
 
     }
 

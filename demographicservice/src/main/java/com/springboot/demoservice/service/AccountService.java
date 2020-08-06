@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 
 @Service
@@ -59,7 +58,7 @@ public class AccountService {
 
             if(acc.getAccountType() == accountType){
                if(acc.getBalance()< amount) {
-                   throw new NotEnoughBalanceException("not enogh balance");
+                   throw new NotEnoughBalanceException("not enough balance");
                }
 
                 acc.setBalance(amount + acc.getBalance());
