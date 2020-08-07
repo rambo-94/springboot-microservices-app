@@ -10,6 +10,12 @@ public class Accounts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public Accounts(Long accountNumber, String accountType, double balance) {
+        this.accountNumber = accountNumber;
+        this.accountType = accountType;
+        this.balance = balance;
+    }
+
     @ManyToOne
     @JoinColumn(name="user_id")
     public User user;

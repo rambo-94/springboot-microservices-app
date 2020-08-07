@@ -1,6 +1,7 @@
 package com.springboot.demoservice.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.springboot.demoservice.model.Accounts;
 import com.springboot.demoservice.model.Demographics;
 import com.springboot.demoservice.model.User;
 import com.springboot.demoservice.service.UserService;
@@ -10,9 +11,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 
 @RestController
@@ -30,7 +35,7 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method = RequestMethod.GET,path = "/login/{username}")
-    Object checkLoginCredentials(@PathVariable("username") String username) throws JSONException {
+    Object checkLoginCredentials(@PathVariable("username") String username) {
 
 
 
@@ -54,6 +59,21 @@ public class UserController {
 
         User user= (User) json.get("User");
 
+        Function<String,String> accountNumber= (account) ->{
+
+            for(int i=0;i<3;i++) {
+                account = account + Double.toString(Math.floor(Math.random() * 10));
+            }
+
+            return account;
+        };
+        
+        Accounts savingAcc = new Accounts(Long.parseLong( accountNumber.apply("124")),"Savings",0);
+        Accounts checkingAcc = new Accounts(Long.parseLong(accountNumber.apply("987")),"Checking",0);
+        List<Accounts> accounts =new ArrayList<>();
+        accounts.add(savingAcc);
+        accounts.add(checkingAcc);
+        user.setAccounts(accounts);
         userService.save(user);
         objectMapper.createObjectNode().put("message","Saved Successful");
 
