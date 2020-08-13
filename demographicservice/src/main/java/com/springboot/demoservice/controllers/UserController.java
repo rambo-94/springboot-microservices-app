@@ -2,10 +2,9 @@ package com.springboot.demoservice.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springboot.demoservice.model.Accounts;
-import com.springboot.demoservice.model.Demographics;
+
 import com.springboot.demoservice.model.User;
 import com.springboot.demoservice.service.UserService;
-import org.codehaus.jettison.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 
 @RestController
@@ -62,7 +60,7 @@ public class UserController {
         Function<String,String> accountNumber= (account) ->{
 
             for(int i=0;i<3;i++) {
-                account = account + Double.toString(Math.floor(Math.random() * 10));
+                account = account + Math.floor(Math.random() * 10);
             }
 
             return account;
