@@ -19,7 +19,7 @@ public class DemographicsService  {
 
     public Demographics retrieveDemog(String Username){
 
-        return demographicsRepository.findByUsername(Username);
+        return demographicsRepository.findByUser_Username(Username);
 
     }
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DemographicsRepository extends CrudRepository<Demographics,Long> {
 
-    public Demographics findByUsername(String Username);
+    public Demographics findByUser_Username(String username);
 
 
 }

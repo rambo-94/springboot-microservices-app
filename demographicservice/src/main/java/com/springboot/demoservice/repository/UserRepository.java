@@ -3,8 +3,9 @@ package com.springboot.demoservice.repository;
 
 import com.springboot.demoservice.model.User;
 import org.springframework.data.repository.CrudRepository;
-import sun.security.mscapi.CPublicKey;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserRepository extends CrudRepository<User,Long> {
 
 
