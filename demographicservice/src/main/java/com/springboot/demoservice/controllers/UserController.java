@@ -50,7 +50,7 @@ public class UserController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(method = RequestMethod.PUT,path = "/register}")
+    @RequestMapping(method = RequestMethod.PUT,path = "/register")
     ResponseEntity saveRegistrationDetails(@RequestBody HashMap<String,Object> json){
 
         ObjectMapper objectMapper =new ObjectMapper();
