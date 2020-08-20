@@ -8,10 +8,6 @@ public class FoodCardAccount {
 
 
     @Id
-    @Column(name ="id")
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private Long id;
-
     @Column(name="accountNumber")
     private Long AccountNumber;
 
